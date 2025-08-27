@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>When is the Event?</title>
+  <title>When is Apple Keynote?</title>
   <style>
     body {
       margin: 0;
@@ -12,7 +12,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: #0b0b0b;
+      background: #0b0b0b; /* dark backdrop */
       color: #fff;
       font-family: "League Spartan", sans-serif;
     }
@@ -28,8 +28,8 @@
       gap: 1.5rem;
       font-size: 2.5rem;
       font-weight: bold;
-      color: #17D860;
-      text-shadow: 0 0 10px rgba(23, 216, 96, 0.7);
+      color: #17D860; /* your green */
+      text-shadow: 0 0 12px rgba(23, 216, 96, 0.7);
     }
 
     .unit {
@@ -46,11 +46,12 @@
   </style>
 </head>
 <body>
-  <h1>Apple Event Countdown</h1>
+  <h1>When is Apple Keynote?</h1>
   <div class="countdown" id="countdown"></div>
 
   <script>
-    const targetDate = new Date("2025-09-09T10:00:00"); // set your keynote date/time
+    // set your keynote date/time here
+    const targetDate = new Date("2025-09-09T10:00:00"); 
     const countdownEl = document.getElementById("countdown");
 
     function updateCountdown() {
