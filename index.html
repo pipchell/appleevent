@@ -6,7 +6,9 @@
   <title>Apple Event Countdown</title>
   <link rel="icon" href="logo.png" type="image/png">
 
- @font-face {
+  <style>
+    /* Use your font in the same folder */
+    @font-face {
       font-family: "League Spartan";
       src: url("LeagueSpartan-Bold.woff2") format("woff2"),
            url("LeagueSpartan-Bold.woff") format("woff");
@@ -17,8 +19,8 @@
     html, body {
       height: 100%;
       overflow: hidden; /* stop scrolling */
-      font-family: 'League Spartan';
-      font-weight: 700;
+      font-family: "League Spartan", sans-serif;
+      font-weight: bold;
       background-color: #000;
       color: #1ED760;
       display:flex;
@@ -29,29 +31,63 @@
     }
 
     body {
-      transform: scale(2.4);   /* zoom */
+      transform: scale(2.4);   /* 240% zoom */
       transform-origin: center;
     }
 
-    h1 {font-size:3.5rem;margin-bottom:2rem;}
-    .countdown {display:flex;gap:2rem;}
-    .value {font-size:4.5rem;}
-    .label {font-size:1.4rem;opacity:0.8;margin-top:0.5rem;}
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .countdown {
+      display:flex;
+      gap:2rem;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .countdown-block {
+      text-align:center;
+    }
+
+    .value {
+      font-size: 4.5rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .label {
+      font-size: 1.4rem;
+      opacity:0.8;
+      margin-top:0.5rem;
+    }
   </style>
 </head>
 <body>
   <h1>Apple Event Countdown</h1>
   <div class="countdown">
-    <div><span class="value" id="days">--</span><div class="label">days</div></div>
-    <div><span class="value" id="hours">--</span><div class="label">hours</div></div>
-    <div><span class="value" id="minutes">--</span><div class="label">minutes</div></div>
-    <div><span class="value" id="seconds">--</span><div class="label">seconds</div></div>
+    <div class="countdown-block">
+      <span class="value" id="days">--</span>
+      <div class="label">days</div>
+    </div>
+    <div class="countdown-block">
+      <span class="value" id="hours">--</span>
+      <div class="label">hours</div>
+    </div>
+    <div class="countdown-block">
+      <span class="value" id="minutes">--</span>
+      <div class="label">minutes</div>
+    </div>
+    <div class="countdown-block">
+      <span class="value" id="seconds">--</span>
+      <div class="label">seconds</div>
+    </div>
   </div>
 
   <script>
     function updateCountdown() {
       const now = new Date();
-      const target = new Date(now.getFullYear(), 8, 9, 18, 0, 0);
+      const target = new Date(now.getFullYear(), 8, 9, 18, 0, 0); // Sept 9, 6 PM
       if (now > target) target.setFullYear(now.getFullYear() + 1);
       const diff = target - now;
 
@@ -60,6 +96,7 @@
       document.getElementById('minutes').textContent = String(Math.floor(diff / 60000) % 60).padStart(2,'0');
       document.getElementById('seconds').textContent = String(Math.floor(diff / 1000) % 60).padStart(2,'0');
     }
+
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
