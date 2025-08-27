@@ -8,10 +8,16 @@
   <link rel="apple-touch-icon" href="logo.png">
   <meta name="theme-color" content="#000000">
 
-  <!-- League Spartan from Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
-
+  <!-- Use your own League Spartan font (in same folder as HTML) -->
   <style>
+    @font-face {
+      font-family: 'League Spartan';
+      src: url('LeagueSpartan.woff2') format('woff2'),
+           url('LeagueSpartan.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
     * {margin:0;padding:0;box-sizing:border-box;}
     html, body {
       height: 100%;
@@ -24,6 +30,11 @@
       align-items:center;
       flex-direction:column;
       text-align:center;
+    }
+
+    body {
+      transform: scale(2.4);   /* 240% zoom */
+      transform-origin: center;
     }
 
     h1 {
